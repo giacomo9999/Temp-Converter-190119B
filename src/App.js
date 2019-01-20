@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Container, Form, Button } from "semantic-ui-react";
+import { Card, Container, Form, Input } from "semantic-ui-react";
 import BoilingVerdict from "./components/boilingVerdict.component";
 
 class App extends Component {
@@ -31,9 +31,8 @@ class App extends Component {
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
                 <label>Enter temperature in Kelvin:</label>
-                <input value={kelvin} onChange={this.handleChange} />
+                <Input value={kelvin} onChange={this.handleChange} />
               </Form.Field>
-              <Button type="submit">Submit</Button>
             </Form>
           </Card.Content>
         </Card>
