@@ -7,14 +7,18 @@ class App extends Component {
   state = { kelvin: 0 };
 
   handleChange = e => {
-    this.setState({ kelvin: e.target.value });
-    console.log("State:", this.state.value);
+    console.log("State:", this.state.kelvin);
     console.log("Event:", e.target.value);
+    this.setState({ kelvin: e.target.value });
   };
 
   handleSubmit = e => {
     console.log("Submitted:", this.state.kelvin);
     e.preventDefault();
+  };
+
+  showClick = sourceName => {
+    console.log("Click came in from " + sourceName);
   };
 
   render() {
@@ -35,11 +39,13 @@ class App extends Component {
           scaleName="Fahrenheit"
           localTemp={kelvin}
           onChange={this.handleChange}
+          showClick={this.showClick}
         />
         <DifferentScale
           scaleName="Celsius"
           localTemp={kelvin}
           onChange={this.handleChange}
+          showClick={this.showClick}
         />
         <BoilingVerdict kelvin={this.state.kelvin} />
       </Container>
