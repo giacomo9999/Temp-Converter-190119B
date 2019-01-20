@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Card, Container, Form, Input } from "semantic-ui-react";
+import { Card, Container } from "semantic-ui-react";
 import BoilingVerdict from "./components/boilingVerdict.component";
+import DifferentScale from "./components/differentScale.component";
 
 class App extends Component {
   state = { kelvin: 0 };
@@ -28,14 +29,18 @@ class App extends Component {
               this.state.kelvin
             }`}</Card.Meta>
             <br />
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Field>
-                <label>Enter temperature in Kelvin:</label>
-                <Input value={kelvin} onChange={this.handleChange} />
-              </Form.Field>
-            </Form>
           </Card.Content>
         </Card>
+        <DifferentScale
+          scaleName="Fahrenheit"
+          localTemp={kelvin}
+          onChange={this.handleChange}
+        />
+        <DifferentScale
+          scaleName="Celsius"
+          localTemp={kelvin}
+          onChange={this.handleChange}
+        />
         <BoilingVerdict kelvin={this.state.kelvin} />
       </Container>
     );
